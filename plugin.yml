@@ -1,0 +1,11 @@
+---
+name: Lightning Strike
+main: LightningStrike\LightningStrike
+version: "2.0"
+api:
+- 3.0.0-ALPHA12
+- 3.0.0
+load: STARTUP
+author: Hikingjungle
+description: Strikes Lightning On Ground When A Player  Dies,Joins,Quits
+...

@@ -1,0 +1,13 @@
+---
+#LightningStrike by MichaelM04
+#DOESNT WORK YET FOR FUTURE UPDATE 
+death:
+  enabled: true
+  height: 0
+join:
+  enabled: true
+  height: 0
+quit:
+  enabled: true
+  height: 0
+...
