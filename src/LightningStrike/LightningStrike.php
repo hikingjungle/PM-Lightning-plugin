@@ -16,14 +16,10 @@ use pocketmine\utils\TextFormat;
 class LightningStrike extends PluginBase implements Listener{
     /** @var Config */
     private $lightning;
-    public function onLoad(){
-      $this->getLogger()->info(TextFormat::AQUA."Preparing For StartUp... STAND BY");
-    }
     public function onEnable(){
       $this->saveDefaultConfig();
       $this->lightning = $this->getConfig()->getAll();
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
-      $this->getLogger()->info(TextFormat::GREEN."Lightning Strike RUNNING Made By MichaelM04");
     }
     /**
      * @param Player               $player
