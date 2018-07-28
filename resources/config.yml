@@ -1,11 +1,11 @@
 --- 
-death:
+#death:(not avalable
   enabled: true
   height: 0
-join:
+#join:(not here yet)
   enabled: true
   height: 0
-quit:
+#quit:(not here yet)
   enabled: true
   height: 0
 ...
