@@ -6,6 +6,8 @@ namespace LightningStrike;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\network\mcpe\protocol\AddEntityPacket;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\entity\Entity;
@@ -25,6 +27,7 @@ class LightningStrike extends PluginBase implements Listener{
      * @param Player               $player
      * @param $height
      */
+
 public function addStrike(Player $p, $height){
     $level = $p->getLevel();
     $light = new AddEntityPacket();
@@ -35,6 +38,18 @@ public function addStrike(Player $p, $height){
     $light->yaw = $p->getYaw();
     $light->pitch = $p->getPitch();
     $p->getServer()->broadcastPacket($level->getPlayers(),$light);
+}
+public function onQuit(PlayerQuitEvent $e){
+	$p = $e->getplayer();
+	if($p instanceof Player){
+	$this->addStrike($p,$this->lightning["quit"]["height"]);
+	}
+}
+public function onJoin(PlayerJoinEvent $e){
+	$p = $e->getplayer();
+	if($p instanceof Player){
+		$this->addStrike($p,$this->lightning["join"]["height"]);
+  }
 }
 public function onDeath(PlayerDeathEvent $e){
     $p = $e->getEntity();
