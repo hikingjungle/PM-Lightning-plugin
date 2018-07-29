@@ -1,11 +1,13 @@
 --- 
-#death:(not avalable
+#LightningStrike by MichaelM04
+#config does not do anything yet
+#death:
   enabled: true
   height: 0
-#join:(not here yet)
+#join:
   enabled: true
   height: 0
-#quit:(not here yet)
+#quit:
   enabled: true
   height: 0
 ...
