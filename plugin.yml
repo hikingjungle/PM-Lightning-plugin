@@ -6,6 +6,6 @@ api:
 - 3.0.0-ALPHA12
 - 3.0.0
 load: STARTUP
-author: Hikingjungle
+author: MichaelM04
 description: Strikes Lightning On Ground When A Player  Dies,Joins,Quits
 ...
