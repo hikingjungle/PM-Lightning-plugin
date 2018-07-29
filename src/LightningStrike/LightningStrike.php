@@ -13,6 +13,7 @@ use pocketmine\Server;
 use pocketmine\entity\Entity;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
+use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 
 class LightningStrike extends PluginBase implements Listener{
