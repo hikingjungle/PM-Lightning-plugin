@@ -29,16 +29,18 @@ class LightningStrike extends PluginBase implements Listener{
      * @param $height
      */
 
-public function addStrike(Player $p){
-    $level = $p->getLevel();
-    $light = new AddEntityPacket();
-    $light->type = 93;
-    $light->entityRuntimeId = Entity::$entityCount++;
-    $light->metadata = array();
-    $light->position = $p->asVector3()->add(0,$height = 0);
-    $light->yaw = $p->getYaw();
-    $light->pitch = $p->getPitch();
-    $p->getServer()->broadcastPacket($level->getPlayers(),$light);
+public function addStrike(Player $p, $boolHere){
+    if( $boolHere == true){
+        $level = $p->getLevel();
+        $light = new AddEntityPacket();
+        $light->type = 93;
+        $light->entityRuntimeId = Entity::$entityCount++;
+        $light->metadata = array();
+        $light->position = $p->asVector3()->add(0,$height = 0);
+        $light->yaw = $p->getYaw();
+        $light->pitch = $p->getPitch();
+        $p->getServer()->broadcastPacket($level->getPlayers(),$light); 
+    }
 }
 public function onQuit(PlayerQuitEvent $e){
 	$p = $e->getplayer();
