@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace LightningStrike;
 
@@ -19,9 +18,10 @@ use pocketmine\utils\TextFormat;
 class LightningStrike extends PluginBase implements Listener{
     /** @var Config */
     private $lightning;
+	
     public function onEnable(){
       $this->saveDefaultConfig();
-      $this->lightning = $this->getConfig()->getAll();
+      
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
     /**
@@ -29,13 +29,13 @@ class LightningStrike extends PluginBase implements Listener{
      * @param $height
      */
 
-public function addStrike(Player $p, $height){
+public function addStrike(Player $p){
     $level = $p->getLevel();
     $light = new AddEntityPacket();
     $light->type = 93;
     $light->entityRuntimeId = Entity::$entityCount++;
     $light->metadata = array();
-    $light->position = $p->asVector3()->add(0,$height,0);
+    $light->position = $p->asVector3()->add(0,$height = 0);
     $light->yaw = $p->getYaw();
     $light->pitch = $p->getPitch();
     $p->getServer()->broadcastPacket($level->getPlayers(),$light);
@@ -43,19 +43,28 @@ public function addStrike(Player $p, $height){
 public function onQuit(PlayerQuitEvent $e){
 	$p = $e->getplayer();
 	if($p instanceof Player){
-	$this->addStrike($p,$this->lightning["quit"]["height"]);
+		
+		$quit = ($this->getConfig()->get("quit"));
+		
+	    $this->addStrike($p, $quit);
 	}
 }
 public function onJoin(PlayerJoinEvent $e){
 	$p = $e->getplayer();
 	if($p instanceof Player){
-		$this->addStrike($p,$this->lightning["join"]["height"]);
+		
+		$join = ($this->getConfig()->get("join"));
+		
+		$this->addStrike($p, $join);
   }
 }
 public function onDeath(PlayerDeathEvent $e){
     $p = $e->getEntity();
     if($p instanceof Player){
-        $this->addStrike($p,$this->lightning["death"]["height"]);
+		
+		$death = ($this->getConfig()->get("death"));
+		
+        $this->addStrike($p, $death);
     }
   }
 }
