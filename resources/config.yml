@@ -2,12 +2,8 @@
 #LightningStrike by MichaelM04
 #config does not do anything yet
 death:
-  enabled: true
-  height: 0
-join:
-  enabled: true
-  height: 0
-quit:
-  enabled: true
-  height: 0
+
+join: true
+
+quit: true
 ...
