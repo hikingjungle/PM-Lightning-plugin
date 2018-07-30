@@ -6,7 +6,3 @@ this is an pmmp api 3.0.0 plugin updated from https://github.com/MichaelM04/Ligh
 To use get the https://poggit.pmmp.io/p/DevTools plugin and unzip the lightning plugin to your plugins folder.
 
 you can then create the plugin.phar with DevTools, or you can just load the plugin as a folder.
-
-to do:
-
-make config.yaml work
