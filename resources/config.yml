@@ -1,7 +1,7 @@
 --- 
 #LightningStrike by MichaelM04
-#config does not do anything yet
-death:
+
+death: true
 
 join: true
 
